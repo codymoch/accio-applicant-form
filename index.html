@@ -243,9 +243,10 @@
             </div>
 
             <!-- Netlify Forms with file upload -->
-            <form name="applicant-form" method="POST" data-netlify="true" enctype="multipart/form-data" id="applicantForm">
-                <input type="hidden" name="form-name" value="applicant-form">
-                
+    
+                <form name="applicant-form" method="POST" data-netlify="true" enctype="multipart/form-data" action="/success.html">
+    <input type="hidden" name="form-name" value="applicant-form" />
+                    
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name <span class="required">*</span></label>
