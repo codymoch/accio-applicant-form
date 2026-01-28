@@ -45,4 +45,546 @@
             border-radius: 20px;
             box-shadow: var(--shadow-dramatic);
             overflow: hidden;
-            positio
+            position: relative;
+        }
+
+        .application-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan), var(--accent-emerald));
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-slate) 100%);
+            color: var(--surface-white);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.1; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            padding: 3rem 2.5rem;
+        }
+
+        .privacy-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 0.9rem;
+            color: var(--text-charcoal);
+        }
+
+        .privacy-banner strong {
+            color: var(--accent-emerald);
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .required-indicator {
+            color: var(--accent-emerald);
+            font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-soft);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--surface-white);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-emerald);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .file-upload-zone {
+            border: 3px dashed var(--border-soft);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            background: var(--surface-white);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-upload-zone:hover {
+            border-color: var(--accent-emerald);
+            background: rgba(16, 185, 129, 0.02);
+            transform: translateY(-2px);
+        }
+
+        .file-upload-zone.dragover {
+            border-color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.05);
+            transform: scale(1.02);
+        }
+
+        .file-upload-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-content {
+            pointer-events: none;
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .file-upload-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--text-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .file-upload-hint {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .file-selected {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .submit-section {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+            color: var(--surface-white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-elevated);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-dramatic);
+        }
+
+        .submit-button:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .company-footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.02);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .company-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .form-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .header-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .file-upload-zone {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Loading State */
+        .submit-button:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .submit-button:disabled::before {
+            display: none;
+        }
+
+        /* Success Animation */
+        .success-animation {
+            animation: successBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes successBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="application-container">
+        <header class="header-section">
+            <div class="header-content">
+                <h1 class="header-title">Join Our Mission</h1>
+                <p class="header-subtitle">Shape the future of background screening technology at Accio Data</p>
+            </div>
+        </header>
+
+        <section class="form-section">
+            <div class="privacy-banner">
+                <strong>🔒 Your Privacy Matters:</strong> All information is encrypted and handled with the highest level of confidentiality. We use your data solely for employment consideration and never share it with third parties.
+            </div>
+
+            <!-- Beautiful form with reliable Netlify functionality -->
+            <form name="job-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="job-application" />
+                
+                <!-- Spam protection -->
+                <div style="display: none;">
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">
+                                First Name <span class="required-indicator">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">
+                                Last Name <span class="required-indicator">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Email Address <span class="required-indicator">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="position" class="form-label">
+                                Position Applied For <span class="required-indicator">*</span>
+                            </label>
+                            <select id="position" name="position" class="form-select" required>
+                                <option value="">Select Position</option>
+                                <option value="Senior Software Engineer">Senior Software Engineer</option>
+                                <option value="Software Engineer">Software Engineer</option>
+                                <option value="Full Stack Developer">Full Stack Developer</option>
+                                <option value="Product Manager">Product Manager</option>
+                                <option value="Senior Product Manager">Senior Product Manager</option>
+                                <option value="Data Analyst">Data Analyst</option>
+                                <option value="Senior Data Analyst">Senior Data Analyst</option>
+                                <option value="Sales Representative">Sales Representative</option>
+                                <option value="Customer Success Manager">Customer Success Manager</option>
+                                <option value="DevOps Engineer">DevOps Engineer</option>
+                                <option value="UI/UX Designer">UI/UX Designer</option>
+                                <option value="Quality Assurance Engineer">QA Engineer</option>
+                                <option value="Business Development Manager">Business Development Manager</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Experience Level</label>
+                            <select id="experience" name="experience" class="form-select">
+                                <option value="">Select Experience Level</option>
+                                <option value="Entry Level (0-2 years)">Entry Level (0-2 years)</option>
+                                <option value="Junior (3-4 years)">Junior (3-4 years)</option>
+                                <option value="Mid-Level (5-7 years)">Mid-Level (5-7 years)</option>
+                                <option value="Senior (8-12 years)">Senior (8-12 years)</option>
+                                <option value="Expert (12+ years)">Expert (12+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="form-label">Current Location</label>
+                            <input type="text" id="location" name="location" class="form-input" placeholder="City, State">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="salary" class="form-label">Salary Expectations</label>
+                            <select id="salary" name="salary" class="form-select">
+                                <option value="">Select Range (Optional)</option>
+                                <option value="$40,000 - $60,000">$40,000 - $60,000</option>
+                                <option value="$60,000 - $80,000">$60,000 - $80,000</option>
+                                <option value="$80,000 - $100,000">$80,000 - $100,000</option>
+                                <option value="$100,000 - $120,000">$100,000 - $120,000</option>
+                                <option value="$120,000 - $150,000">$120,000 - $150,000</option>
+                                <option value="$150,000+">$150,000+</option>
+                                <option value="Negotiable">Negotiable</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability" class="form-label">Availability to Start</label>
+                            <select id="availability" name="availability" class="form-select">
+                                <option value="">Select Availability</option>
+                                <option value="Immediately">Immediately</option>
+                                <option value="2 weeks notice">2 weeks notice</option>
+                                <option value="1 month">1 month</option>
+                                <option value="2-3 months">2-3 months</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="coverLetter" class="form-label">Why Accio Data?</label>
+                        <textarea id="coverLetter" name="coverLetter" class="form-textarea" 
+                            placeholder="Share your experience with SaaS, background screening, or similar industries. What excites you about our mission? How would you contribute to powering 140+ Consumer Reporting Agencies?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume" class="form-label">
+                            Resume/CV <span class="required-indicator">*</span>
+                        </label>
+                        <div class="file-upload-zone" id="fileUploadZone">
+                            <input type="file" id="resume" name="resume" class="file-upload-input" 
+                                accept=".pdf,.doc,.docx" required>
+                            <div class="file-upload-content">
+                                <span class="file-upload-icon">📄</span>
+                                <div class="file-upload-text">Drop your resume here or click to browse</div>
+                                <div class="file-upload-hint">PDF, DOC, or DOCX • Max 10MB</div>
+                            </div>
+                            <div class="file-selected" id="fileSelected"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="portfolio" class="form-label">Portfolio/LinkedIn/GitHub</label>
+                        <input type="url" id="portfolio" name="portfolio" class="form-input" 
+                            placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+
+                    <div class="submit-section">
+                        <button type="submit" class="submit-button" id="submitButton">
+                            Submit Application
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="company-footer">
+            <div>Accio Data • Powering Background Screening Solutions</div>
+            <div class="company-tagline">Where innovation meets reliability</div>
+        </footer>
+    </div>
+
+    <script>
+        // Enhanced file upload with drag and drop
+        const fileUploadZone = document.getElementById('fileUploadZone');
+        const fileInput = document.getElementById('resume');
+        const fileSelected = document.getElementById('fileSelected');
+        const submitButton = document.getElementById('submitButton');
+
+        // Drag and drop functionality
+        fileUploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadZone.classList.add('dragover');
+        });
+
+        fileUploadZone.addEventListener('dragleave', () => {
+            fileUploadZone.classList.remove('dragover');
+        });
+
+        fileUploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadZone.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelection(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelection(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelection(file) {
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+            if (file.size > maxSize) {
+                alert('File too large. Please select a file under 10MB.');
+                return;
+            }
+
+            if (!allowedTypes.includes(file.type)) {
+                alert('Invalid file type. Please select a PDF, DOC, or DOCX file.');
+                return;
+            }
+
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            fileSelected.innerHTML = `
+                <strong>✅ Selected:</strong> ${file.name}<br>
+                <strong>Size:</strong> ${fileSize} MB
+            `;
+            fileSelected.style.display = 'block';
+            fileUploadZone.classList.add('success-animation');
+            setTimeout(() => fileUploadZone.classList.remove('success-animation'), 600);
+        }
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+            } else if (value.length >= 3) {
+                value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+            }
+            e.target.value = value;
+        });
+
+        // Form validation and submission feedback
+        document.querySelector('form').addEventListener('submit', function() {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting Application...';
+        });
+    </script>
+</body>
+</html>
