@@ -243,126 +243,88 @@
             </div>
 
             <!-- Netlify Forms with file upload -->
+<!-- Replace your entire form section with this -->
+<form name="job-application" method="POST" data-netlify="true" action="/" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="job-application" />
     
-                <form name="applicant-form" method="POST" data-netlify="true" enctype="multipart/form-data">
-    <input type="hidden" name="form-name" value="applicant-form" />
-                    
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name <span class="required">*</span></label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name <span class="required">*</span></label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                </div>
+    <!-- Spam protection -->
+    <p style="display: none;">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+    </p>
 
-                <div class="form-group">
-                    <label for="email">Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="position">Position Applied For <span class="required">*</span></label>
-                        <select id="position" name="position" required>
-                            <option value="">Select Position</option>
-                            <option value="Software Engineer">Software Engineer</option>
-                            <option value="Senior Software Engineer">Senior Software Engineer</option>
-                            <option value="Product Manager">Product Manager</option>
-                            <option value="Data Analyst">Data Analyst</option>
-                            <option value="Sales Representative">Sales Representative</option>
-                            <option value="Customer Success Manager">Customer Success Manager</option>
-                            <option value="DevOps Engineer">DevOps Engineer</option>
-                            <option value="UI/UX Designer">UI/UX Designer</option>
-                            <option value="Quality Assurance Engineer">QA Engineer</option>
-                            <option value="Business Development">Business Development</option>
-                            <option value="Other">Other (specify in cover letter)</option>
-                        </select>
-                    </div>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="form-group">
-                    <label for="experience">Years of Relevant Experience</label>
-                    <select id="experience" name="experience">
-                        <option value="">Select Experience Level</option>
-                        <option value="Entry Level (0-1 years)">Entry Level (0-1 years)</option>
-                        <option value="Junior (2-3 years)">Junior (2-3 years)</option>
-                        <option value="Mid-Level (4-5 years)">Mid-Level (4-5 years)</option>
-                        <option value="Senior (6-10 years)">Senior (6-10 years)</option>
-                        <option value="Expert (10+ years)">Expert (10+ years)</option>
-                    </select>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="form-group">
-                    <label for="location">Current Location (City, State)</label>
-                    <input type="text" id="location" name="location" placeholder="e.g., Austin, TX">
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="position">Position *</label>
+        <select id="position" name="position" required style="width: 100%; padding: 10px; margin-top: 5px;">
+            <option value="">Select Position</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Product Manager">Product Manager</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Sales Representative">Sales Representative</option>
+            <option value="Customer Success Manager">Customer Success Manager</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
 
-                <div class="form-group">
-                    <label for="salary">Salary Expectations (Optional)</label>
-                    <select id="salary" name="salary">
-                        <option value="">Select Range (Optional)</option>
-                        <option value="$40,000 - $60,000">$40,000 - $60,000</option>
-                        <option value="$60,000 - $80,000">$60,000 - $80,000</option>
-                        <option value="$80,000 - $100,000">$80,000 - $100,000</option>
-                        <option value="$100,000 - $120,000">$100,000 - $120,000</option>
-                        <option value="$120,000 - $150,000">$120,000 - $150,000</option>
-                        <option value="$150,000+">$150,000+</option>
-                        <option value="Negotiable">Negotiable</option>
-                    </select>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="experience">Experience Level</label>
+        <select id="experience" name="experience" style="width: 100%; padding: 10px; margin-top: 5px;">
+            <option value="">Select Level</option>
+            <option value="Entry Level">Entry Level (0-2 years)</option>
+            <option value="Mid Level">Mid Level (3-5 years)</option>
+            <option value="Senior Level">Senior Level (6-10 years)</option>
+            <option value="Expert Level">Expert Level (10+ years)</option>
+        </select>
+    </div>
 
-                <div class="form-group">
-                    <label for="availability">Availability to Start</label>
-                    <select id="availability" name="availability">
-                        <option value="">Select Availability</option>
-                        <option value="Immediately">Immediately</option>
-                        <option value="2 weeks notice">2 weeks notice</option>
-                        <option value="1 month">1 month</option>
-                        <option value="2-3 months">2-3 months</option>
-                        <option value="Other">Other (specify in cover letter)</option>
-                    </select>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="City, State" style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="form-group">
-                    <label for="coverLetter">Cover Letter / Why Accio Data?</label>
-                    <textarea id="coverLetter" name="coverLetter" placeholder="Tell us about yourself, your experience with background screening or SaaS, why you're interested in Accio Data, and what value you'd bring to our team..."></textarea>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="salary">Salary Expectations</label>
+        <input type="text" id="salary" name="salary" placeholder="e.g., $80,000 - $100,000" style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="form-group">
-                    <label for="resume">Resume/CV <span class="required">*</span></label>
-                    <div class="file-upload" id="fileUpload">
-                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                        <div class="upload-icon">📄</div>
-                        <div class="upload-text">Click to upload or drag and drop</div>
-                        <div class="upload-subtext">PDF, DOC, or DOCX files only (Max 10MB)</div>
-                        <div class="file-info" id="fileInfo"></div>
-                    </div>
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="cover-letter">Cover Letter</label>
+        <textarea id="cover-letter" name="cover-letter" rows="6" placeholder="Tell us why you're interested in Accio Data..." style="width: 100%; padding: 10px; margin-top: 5px; resize: vertical;"></textarea>
+    </div>
 
-                <div class="form-group">
-                    <label for="portfolio">Portfolio/LinkedIn (Optional)</label>
-                    <input type="text" id="portfolio" name="portfolio" placeholder="https://linkedin.com/in/yourprofile or portfolio URL">
-                </div>
+    <div style="margin-bottom: 20px;">
+        <label for="resume">Resume/CV *</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    Submit Application
-                </button>
+    <div style="margin-bottom: 20px;">
+        <label for="portfolio">Portfolio/LinkedIn URL</label>
+        <input type="url" id="portfolio" name="portfolio" placeholder="https://" style="width: 100%; padding: 10px; margin-top: 5px;">
+    </div>
 
-                <div class="success-message" id="successMessage">
-                    <strong>Success!</strong> Your application has been submitted successfully. We'll review your information and get back to you within 5-7 business days. Thank you for your interest in Accio Data!
-                </div>
+    <button type="submit" style="background: #4299e1; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%;">
+        Submit Application
+    </button>
+</form>
 
-                <div class="error-message" id="errorMessage">
-                    <strong>Error!</strong> There was a problem submitting your application. Please check your internet connection and try again. If the problem persists, please email your application directly to careers@acciodata.com.
-                </div>
-            </form>
+<div id="success-message" style="display: none; background: #d4edda; color: #155724; padding: 20px; border-radius: 5px; margin-top: 20px;">
+    <strong>Thank you!</strong> Your application has been submitted successfully. We'll be in touch soon!
+</div>
+
         </div>
     </div>
 
