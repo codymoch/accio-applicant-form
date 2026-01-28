@@ -371,7 +371,7 @@
         const fileUpload = document.getElementById('fileUpload');
         const fileInput = document.getElementById('resume');
         const fileInfo = document.getElementById('fileInfo');
-        const form = document.getElementById('applicantForm');
+      
         const submitBtn = document.getElementById('submitBtn');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
@@ -436,43 +436,7 @@
             fileInfo.style.display = 'block';
         }
 
-        // Form submission handling
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting Application...';
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-
-            try {
-                const formData = new FormData(form);
-                
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                    fileInfo.style.display = 'none';
-                    successMessage.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-
-            } catch (error) {
-                console.error('Submission error:', error);
-                errorMessage.style.display = 'block';
-                errorMessage.scrollIntoView({ behavior: 'smooth' });
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Application';
-            }
-        });
-
+        
         // Form validation enhancements
         const requiredInputs = document.querySelectorAll('input[required], select[required]');
         requiredInputs.forEach(input => {
